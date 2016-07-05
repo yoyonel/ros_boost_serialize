@@ -118,11 +118,12 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
+   include/${PROJECT_NAME}
 )
 
 ## Declare a C++ library
 add_library(ros_boost_serialize
-  src/${PROJECT_NAME}/ros_boost_serialize.cpp
+  src/sensors.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -141,7 +142,7 @@ add_dependencies(ros_boost_serialize
 # add_dependencies(ros_boost_serialize_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(ros_boost_serialize_node
+target_link_libraries(ros_boost_serialize
   ${catkin_LIBRARIES}
   ${boost_LIBRARIES}
 )
